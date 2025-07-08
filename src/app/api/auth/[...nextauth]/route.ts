@@ -1,28 +1,6 @@
 import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
-import { NextAuthOptions } from "next-auth";
-
-export const authOptions: NextAuthOptions = {
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    }),
-  ],
-  callbacks: {
-    async session({ session, token, user }) {
-      console.log('info', session, token, user);
-      
-      // Bổ sung id, provider, avatar vào session
-      if (session.user) {
-        session.user.id = token.sub || user?.id;
-        session.user.provider = token.provider || user?.provider || 'google';
-        session.user.avatarUrl = session.user.image;
-      }
-      return session;
-    },
-  },
-};
+import { authOptions } from "@/lib/authOptions";
 
 const handler = NextAuth(authOptions);
-export { handler as GET, handler as POST }; 
+
+export { handler as GET, handler as POST }; // ✅ Đúng chuẩn, không export gì khác
