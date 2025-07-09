@@ -17,6 +17,7 @@ export default function LoginPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const called = useRef(false);
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3002';
 
   useEffect(() => {
     if (status === "loading") return;
@@ -24,7 +25,7 @@ export default function LoginPage() {
       const user = session.user as UserWithExtraFields;
       if (!user) return;
       called.current = true;
-      fetch("http://localhost:3002/users/login", {
+      fetch(`${apiUrl}/users/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -71,7 +72,7 @@ export default function LoginPage() {
         }}
       >
         <h2 style={{ marginBottom: 28, fontWeight: 700, fontSize: 24, color: '#222', letterSpacing: 1 }}>
-          Đăng nhập
+          Ðang nh?p
         </h2>
         <button
           onClick={() => signIn('google')}
@@ -97,7 +98,7 @@ export default function LoginPage() {
             e.currentTarget.style.boxShadow = '0 2px 8px rgba(66,133,244,0.10)';
           }}
         >
-          Đăng nhập với Google
+          Ðang nh?p v?i Google
         </button>
       </div>
     </div>
