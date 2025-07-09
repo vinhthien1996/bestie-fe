@@ -16,8 +16,8 @@ export default function Home() {
 
   // Hàm generate script nhúng
   const generateEmbedScript = () => {
-    // Có thể tuỳ chỉnh endpoint/script này theo backend
-    return `<script src=\"http://localhost:3000/embed.js?email=${session?.user?.email || ''}\"></script>`;
+    // Có th? tu? ch?nh endpoint/script này theo backend
+    return `<script src=\"http://localhost:3000/embed.js\"></script>`;
   };
 
   const handleCopy = () => {
@@ -33,7 +33,7 @@ export default function Home() {
           onClick={() => signOut()}
           style={{ position: 'absolute', top: 20, right: 20, zIndex: 10, background: '#eee', border: '1px solid #ccc', borderRadius: 6, padding: '8px 18px', fontWeight: 500, cursor: 'pointer' }}
         >
-          Đăng xuất
+          Ðang xu?t
         </button>
         {/* Thông tin user */}
         {session?.user && (
@@ -56,10 +56,10 @@ export default function Home() {
             </div>
           </div>
         )}
-        {/* Danh sách sản phẩm */}
+        {/* Danh sách s?n ph?m */}
         <div style={{ width: '100%', maxWidth: 900, position: 'relative' }}>
           <h3 style={{ fontWeight: 600, fontSize: 20, marginBottom: 14, textAlign: 'center' }}>
-            Danh sách sản phẩm
+            Danh sách s?n ph?m
             {/* Nút Export */}
             <button
               onClick={() => setShowExport(true)}
@@ -106,13 +106,13 @@ export default function Home() {
                   onClick={handleCopy}
                   style={{ padding: '6px 18px', borderRadius: 5, border: '1px solid #ccc', background: copied ? '#d1fae5' : '#f5f5f5', fontWeight: 500, cursor: 'pointer', marginRight: 10 }}
                 >
-                  {copied ? 'Đã copy!' : 'Copy'}
+                  {copied ? 'Ðã copy!' : 'Copy'}
                 </button>
                 <button
                   onClick={() => setShowExport(false)}
                   style={{ padding: '6px 18px', borderRadius: 5, border: '1px solid #ccc', background: '#f5f5f5', fontWeight: 500, cursor: 'pointer' }}
                 >
-                  Đóng
+                  Ðóng
                 </button>
                 </div>
             </div>
