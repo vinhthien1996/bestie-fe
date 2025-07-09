@@ -14,9 +14,10 @@ const ProductList: React.FC = () => {
     // if (!email) return;
     setLoading(true);
     setError(null);
-    axios.get('https://deal-chen-instrumentation-employ.trycloudflare.com/products')
+    const apiUrl = process.env.REACT_APP_API_URL || 'https://bestie-be.onrender.com';
+    axios.get(`${apiUrl}/products`)
       .then((res: { data: any }) => {
-        if (res.data && typeof res.data === 'object' && res.data.message === 'Bạn chưa cài đặt app!') {
+        if (res.data && typeof res.data === 'object' && res.data.message === 'B?n chua cài d?t app!') {
           setError(res.data.message);
           setProducts(null);
         } else {
@@ -36,9 +37,9 @@ const ProductList: React.FC = () => {
   return (
     <div style={{ width: '100%', maxWidth: 900, position: 'relative' }}>
       <h3 style={{ fontWeight: 600, fontSize: 20, marginBottom: 14, textAlign: 'center' }}>
-        Danh sách sản phẩm
+        Danh sách s?n ph?m
       </h3>
-      {error === 'Bạn chưa cài đặt app!' && (
+      {error === 'B?n chua cài d?t app!' && (
         <div style={{
           background: '#fffbe6',
           color: '#ad6800',
@@ -56,8 +57,8 @@ const ProductList: React.FC = () => {
           {error}
         </div>
       )}
-      {loading && <div>Đang tải dữ liệu sản phẩm...</div>}
-      {error && error !== 'Bạn chưa cài đặt app!' && <div style={{ color: 'red' }}>Lỗi: {error}</div>}
+      {loading && <div>Ðang t?i d? li?u s?n ph?m...</div>}
+      {error && error !== 'B?n chua cài d?t app!' && <div style={{ color: 'red' }}>L?i: {error}</div>}
       {products && Array.isArray(products) && !error && (
         <div
           style={{
