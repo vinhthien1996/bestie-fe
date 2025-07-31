@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;/* Custom styles for minimalism theme */
+.minimalism-theme {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Ensure MUI components are styled correctly */
+.MuiBox-root {
+  box-sizing: border-box;
+}
+
+.MuiPaper-root {
+  box-sizing: border-box;
+}
+
+.MuiAvatar-root {
+  box-sizing: border-box;
+}
+
+.MuiTypography-root {
+  box-sizing: border-box;
+}
+
+/* Additional styles for UserProfileBlock */
+.user-profile-banner {
+  height: 96px;
+  margin-left: -48px;
+  margin-right: -48px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: 48px;
+  background: linear-gradient(to right, #FFF9F7, #F5AC9C, #FFCBC0);
+}
+
+@media (min-width: 600px) {
+  .user-profile-banner {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+}
+
+@media (min-width: 900px) {
+  .user-profile-banner {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+}
+
+.user-profile-card {
+  position: relative;
+  margin-top: -96px;
+  background-color: white;
+  border-radius: 32px;
+  filter: drop-shadow(0px 2px 7px rgba(0, 0, 0, 0.15));
+  padding: 56px;
+  padding-bottom: 68px;
+}
+
+.user-profile-avatar-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -96px;
+}
+
+.user-profile-avatar {
+  border: 2px solid white;
+}
+
+.user-profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-profile-email {
+  color: #54595F;
+  font-weight: 500;
+  font-size: 16px;
+} 
